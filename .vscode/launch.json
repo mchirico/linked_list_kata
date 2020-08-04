@@ -1,0 +1,88 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/src/add.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/test/add.test.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "sourceMaps": true,
+            "name": "Mocha Tests...",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "--require", "ts-node/register",
+                "-u", "bdd",
+                "--timeout", "999999",
+                "--colors", "--recursive",
+                "${workspaceFolder}/test/**/*.ts"
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Watch",
+            "sourceMaps": true,
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+              "-u",
+              "bdd",
+              "--colors",
+              "--require",
+              "${workspaceRoot}/node_modules/ts-node/register/transpile-only",
+              "${workspaceRoot}/test/**/*.ts",
+              "--watch",
+              "--watch-extensions",
+              "ts"
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
+          },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Linked List",
+            "sourceMaps": true,
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+              "-u",
+              "bdd",
+              "--colors",
+              "--require",
+              "${workspaceRoot}/node_modules/ts-node/register/transpile-only",
+              "${workspaceRoot}/test/**/linked.list.test.ts",
+              "--watch",
+              "--watch-extensions",
+              "ts"
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
+          }
+
+    ]
+}
