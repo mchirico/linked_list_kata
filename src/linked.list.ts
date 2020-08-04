@@ -21,13 +21,15 @@ export class LinkedList<T> {
 
     if (this.tail?.next) {
       node.next = this.tail.next;
-      node.prev = this.head;
-      if (node.prev?.prev) {
-        node.prev.prev = node.next;
+      node.prev = this.tail;
+      if (this.head?.prev) {
+        this.head.prev = node;
+      }
+      if (this.tail.prev === this.tail) {
+        this.tail.prev = node;
       }
       this.head = node;
       this.tail.next = node;
-      this.tail.prev = node.prev;
     }
 
     return this;
@@ -54,7 +56,7 @@ export class LinkedList<T> {
     if (this.ptr?.prev) {
       this.ptr = this.ptr.prev;
     } else {
-      this.ptr = this.tail;
+      this.ptr = this.head;
     }
     return this.ptr;
   }
