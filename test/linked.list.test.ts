@@ -25,6 +25,24 @@ describe("Linked List", () => {
     result.push(linkList.Next?.value);
     result.push(linkList.Next?.value);
     console.log(result);
+    // Note.. use to.eql
     expect(result).to.eql(["three", "two", "one", "three"]);
+  });
+
+  it("can have Prev", () => {
+    const linkList = new LinkedList<string>();
+    linkList.append("one");
+    linkList.append("two");
+    linkList.append("three");
+    linkList.append("four");
+
+    const result = [];
+    result.push(linkList.Prev?.value);
+    result.push(linkList.Prev?.value);
+    result.push(linkList.Prev?.value);
+    result.push(linkList.Prev?.value);
+    console.log("test: ", result);
+    // Note.. use to.eql
+    //expect(result).to.eql(["three", "two", "one", "three"]);
   });
 });
