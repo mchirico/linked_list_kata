@@ -24,9 +24,11 @@ describe("Linked List", () => {
     result.push(linkList.Next?.value);
     result.push(linkList.Next?.value);
     result.push(linkList.Next?.value);
+    result.push(linkList.Next?.value);
+    result.push(linkList.Next?.value);
     console.log(result);
     // Note.. use to.eql
-    expect(result).to.eql(["three", "two", "one", "three"]);
+    expect(result).to.eql(["three", "two", "one", "three", "two", "one"]);
   });
 
   it("can have Prev", () => {
@@ -34,15 +36,19 @@ describe("Linked List", () => {
     linkList.append("one");
     linkList.append("two");
     linkList.append("three");
-    linkList.append("four");
 
     const result = [];
     result.push(linkList.Prev?.value);
     result.push(linkList.Prev?.value);
     result.push(linkList.Prev?.value);
     result.push(linkList.Prev?.value);
+    result.push(linkList.Prev?.value);
+    result.push(linkList.Prev?.value);
+    result.push(linkList.Prev?.value);
+
     console.log("test: ", result);
+    const expected = ["three", "one", "two", "three", "one", "two", "three"];
     // Note.. use to.eql
-    //expect(result).to.eql(["three", "two", "one", "three"]);
+    expect(result).to.eql(expected);
   });
 });
