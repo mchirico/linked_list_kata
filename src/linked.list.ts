@@ -8,13 +8,11 @@ export class LinkedList<T> {
     const node = this.newNode(value);
 
     if (this.empty()) {
-      this.head = node;
-      this.tail = this.head;
-      this.tail.next = this.head;
-      this.tail.prev = this.head;
+      this.tail = node;
+      this.tail.next = this.tail;
+      this.tail.prev = this.tail;
 
-      this.head.next = this.tail;
-      this.head.prev = this.tail;
+      this.head = this.tail;
 
       return this;
     }

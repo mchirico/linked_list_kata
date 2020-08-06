@@ -21,6 +21,9 @@
       "compilers": "ts-node/register"
     },
     "mocha.requires": ["ts-node/register"],
-    "mocha.files.glob": "test/*.test.ts"
+    "mocha.files.glob": "test/*.test.ts",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   }
   
